@@ -1,0 +1,335 @@
+:root {
+  --font-family: 'Smythe', cursive;
+  --font-family-alt: Verdana, Geneva, Tahoma, sans-serif;
+  --line-height: 1.5;
+  --font-size: 16px;
+  --font-weight: 400;
+  --color: black;
+  --background-color: white;
+  --font-synthesis: none;
+  --text-rendering: optimizeLegibility;
+  --webkit-font-smoothing: antialiased;
+  --moz-osx-font-smoothing: grayscale;
+  --webkit-text-size-adjust: 100%;
+
+  --danger: red;
+
+  --brand-color-primary: #16db99;
+  --brand-color-secondary: #ecfdf5;
+  --brand-color-tertiary: #065f46;
+
+  --color-light-grey: #8b8b8b;
+}
+
+/* Box Sizing */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Utilities */
+.hide {
+  display: none;
+}
+
+/* General Styles */
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 600px;
+  min-height: 50vh;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+main {
+  padding: 50px;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  height: 120px;
+  background-color: var(--brand-color-tertiary);
+  background-image: url('/assets/images/bg-img.jpg');
+  background-position: right;
+  background-size: cover;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+/* Brand */
+.brand {
+  padding-left: 20px;
+}
+
+.brand > h1 {
+  margin-bottom: 0;
+}
+
+.brand p {
+  font-size: 1.4rem;
+  margin-top: 0;
+}
+
+/* ---- ****** ---- ITEM MENU ---- ****** ---- */
+.item {
+  height: 140px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d2d2d2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.item-emoji {
+  margin: 0 20px 0;
+  font-size: 60px;
+}
+
+.item-details h2 {
+  margin: 0;
+}
+
+.item-name {
+  font-size: 1.75rem; /* 28px */
+  line-height: 1.05;
+  margin: 0;
+  padding: 0;
+}
+
+.item-ingredients {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5;
+  color: var(--color-light-grey);
+  margin: 0;
+  padding: 0;
+}
+
+.item-price {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.item-price::before {
+  content: '$';
+}
+
+/* ---- ****** ---- Add Item Button ---- ****** ---- */
+.add-item {
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+}
+
+.add-item:hover,
+.add-item:focus {
+  cursor: pointer;
+  background-color: var(--brand-color-primary);
+  border: 2px solid var(--brand-color-primary);
+  border-radius: 50%;
+}
+
+/* ---- ****** ---- Order Section ---- ****** ---- */
+.order {
+  display: none;
+}
+
+.order-title {
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.order-item-name {
+  font-size: 1.75rem;
+  line-height: 1.05;
+  margin: 5px;
+}
+
+.order-price {
+  font-size: 1.25rem !important; /* Refactor */
+  line-height: 1.5;
+}
+
+.order-price::before {
+  content: '$';
+}
+
+.order-row,
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-total {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  padding-top: 0.8em;
+  border-top: 2px solid #393333;
+}
+
+.order-total p {
+  font-size: 1.75rem;
+  margin-top: 0;
+}
+
+/* Remove Item Link */
+.remove {
+  margin-left: 5px;
+  font-family: var(--font-family-alt);
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.5;
+  vertical-align: middle;
+  color: var(--color-light-grey);
+  cursor: pointer;
+}
+
+.remove:hover,
+.remove:focus {
+  color: var(--danger);
+  font-weight: 900;
+}
+
+/* Complete Order Button */
+.order-btn {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  padding: 1.2em 2em;
+  font-family: var(--font-family-alt);
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.5;
+  background-color: var(--brand-color-primary);
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.order-btn:hover {
+  border-color: var(--brand-color-tertiary);
+}
+
+.order-btn:focus,
+.order-btn:focus-visible {
+  outline: 4px auto var(--webkit-focus-ring-color);
+}
+
+/* ---- ****** ---- MODAL FORM ---- ****** ---- */
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1; /*  Refactor */
+  pointer-events: auto; /*  Refactor */
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.6s ease;
+}
+
+/* Modal Vivibility - Utilities */
+.hide-modal {
+  opacity: 0;
+  pointer-events: none;
+}
+.show-modal {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background-color: white;
+  width: 524px;
+  height: 520px;
+  padding: 30px 50px;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Payment Information Form */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 1.3em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+/* Credit Card Fields  */
+.card-name,
+.card-number,
+.card-cvv {
+  height: 71px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  font-size: 1.4em;
+  border: 1.3px solid #757575;
+  border-radius: 4px;
+}
+
+/* Payment Button */
+.pay-btn {
+  height: 71px;
+  width: 100%;
+  margin-top: 2em;
+  padding: 1.2em 2em;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: 900;
+  color: white;
+  background-color: #16db99;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.pay-btn:hover,
+.pay-btn:focus {
+  font-size: 1.2em;
+}
+
+/* ---- ****** ---- ORDER RECEIPT MESSAGE ---- ****** ---- */
+.receipt {
+  width: 100%;
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0.5em;
+  font-family: inherit;
+  font-size: 1.8em;
+  font-weight: 900;
+  text-align: center;
+  color: var(--brand-color-tertiary);
+  background-color: var(--brand-color-secondary);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}

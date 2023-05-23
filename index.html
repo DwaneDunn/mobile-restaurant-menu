@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Smythe&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Jimmy's Dinner</title>
+  </head>
+  <body>
+    <header id="header">
+      <div class="brand">
+        <h1>Jimmy's Diner</h1>
+        <p>The best burgers and pizzas in town.</p>
+      </div>
+    </header>
+    <main>
+      <!-- Rendered Menu Items -->
+      <div class="menu-items" id="menu"></div>
+
+      <!-- Order Details -->
+      <section class="order hide-order" id="order">
+        <h3 class="order-title">Your Order</h3>
+
+        <!-- Renderded Order Items -->
+        <div class="order-items" id="display-order-items"></div>
+
+        <!-- Order Total -->
+        <div class="total" id="total">
+          <div class="order-total">
+            <p>Total price:</p>
+            <p class="order-price" id="order-total"></p>
+          </div>
+
+          <!-- Complete Order Button -->
+          <button class="order-btn" id="btn-order">Complete Order</button>
+        </div>
+      </section>
+
+      <!-- Receipt Message -->
+      <section class="receipt hide-receipt" id="receipt">
+        <p class="receipt-message">
+          Thanks, <span class="receipt-name" id="order-name">James</span>! Your
+          order is on its way!
+        </p>
+      </section>
+
+      <!-- Modal -->
+      <section class="modal-container hide-modal" id="modal-container">
+        <div class="modal">
+          <p class="modal-title">Enter card details</p>
+          <!-- Payment Form -->
+          <form class="modal-form" id="credit-card-form">
+            <input
+              type="text"
+              maxlength="45"
+              name="card-name"
+              class="card-name"
+              id="card-name"
+              placeholder="Enter your name"
+              required
+              autocomplete="off"
+            />
+            <input
+              type="text"
+              name="card-number"
+              class="card-number"
+              id="card-number"
+              placeholder="Enter card number"
+              required
+              autocomplete="off"
+            />
+            <input
+              type="text"
+              max="3"
+              name="card-cvv"
+              class="card-cvv"
+              id="card-cvv"
+              placeholder="Enter CVV"
+              required
+              autocomplete="off"
+            />
+            <!-- Payment Button -->
+            <button class="pay-btn" id="btn-pay" type="submit">Pay</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
